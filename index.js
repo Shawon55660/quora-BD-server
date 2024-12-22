@@ -134,8 +134,6 @@ async function run() {
     app.delete('/my-recommendation/:id', async (req, res) => {
       // const recInfo = req.body
       const id = req.params.id;
-      
-      
       const filter = { recommand_id: id };
       const result = await recommandCollection.deleteOne(filter)
       if (result.deletedCount > 0) {
@@ -159,6 +157,14 @@ async function run() {
       const email = req.query.owner_email;
       const query = { owner_email: email };
       const result = await recommandCollection.find(query).toArray()
+      res.send(result)
+    })
+
+    // recommendation by id api
+    app.get('/recommend-id', async(req,res)=>{
+      const recId = req.query.recommand_id;
+      const filter = { recommand_id:recId};
+      const result = await recommandCollection.find(filter).toArray();
       res.send(result)
     })
 
