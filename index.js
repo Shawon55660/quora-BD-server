@@ -9,7 +9,10 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 //mideware
 const corsOptions = {
-  origin: ['http://localhost:5173'],
+  origin: ['http://localhost:5173',
+    'https://quora-65e79.web.app',
+    
+  ],
   credentials: true,
   optionalSuccessStatus: 200
 }
