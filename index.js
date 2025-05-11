@@ -230,6 +230,7 @@ async function run() {
     app.get('/recommendation-for-me', verifyToken, async (req, res) => {
       const email = req.query.owner_email;
       const decodedEmail = req.user?.email
+      console.log(decodedEmail)
       if (decodedEmail !== email)
       return res.status(401).send({ message: 'unauthorized access' })
 
